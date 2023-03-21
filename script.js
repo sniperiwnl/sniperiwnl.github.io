@@ -10,7 +10,7 @@ var images = [
   { file: "Bind/IMG3.png", map: "Bind" },
   { file: "Bind/IMG4.png", map: "Bind" },
   { file: "Bind/IMG5.png", map: "Bind" },
-  { file: "Bind/IMG6.png", map: "Bind" },
+ // { file: "Bind/IMG6.png", map: "Bind" },
   { file: "Haven/IMG1.png", map: "Haven" },
   { file: "Haven/IMG2.png", map: "Haven" },
   { file: "Haven/IMG3.png", map: "Haven" },
@@ -21,11 +21,11 @@ var images = [
   { file: "Icebox/IMG2.png", map: "Icebox" },
   { file: "Icebox/IMG3.png", map: "Icebox" },
   { file: "Icebox/IMG4.png", map: "Icebox" },
-  { file: "Icebox/IMG5.png", map: "Icebox" },
+//  { file: "Icebox/IMG5.png", map: "Icebox" },
   { file: "Icebox/IMG6.png", map: "Icebox" },
   { file: "Icebox/IMG7.png", map: "Icebox" },
   { file: "Icebox/IMG8.png", map: "Icebox" },
-  { file: "Icebox/IMG9.png", map: "Icebox" },
+ // { file: "Icebox/IMG9.png", map: "Icebox" },
   { file: "Split/IMG1.png", map: "Split" },
   { file: "Split/IMG2.png", map: "Split" },
   { file: "Split/IMG3.png", map: "Split" },
@@ -59,6 +59,12 @@ submitBtn.addEventListener("click", function() {
 });
 resetBtn.addEventListener("click", function() { // New event listener for the reset button
   location.reload();
+});
+
+answerField.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    checkAnswer();
+  }
 });
 
 function startGame() {
