@@ -49,6 +49,10 @@ var submitBtn = document.getElementById("submit-btn");
 var scoreContainer = document.getElementById("score-container");
 var timerContainer = document.getElementById("timer-container"); // New timer container element
 var resetBtn = document.getElementById("reset-btn"); // New reset button element
+var finalScreen = document.querySelector(".final-screen");
+var closeBtn = document.querySelector(".close-btn");
+var finalScoreText = document.getElementById("final-score-text");
+var finalScoreElement = document.getElementById("final-score");
 
 // add event listeners
 startBtn.addEventListener("click", function() {
@@ -61,10 +65,14 @@ resetBtn.addEventListener("click", function() { // New event listener for the re
   location.reload();
 });
 
+
 answerField.addEventListener("keyup", function(event) {
   if (event.key === "Enter") {
     checkAnswer();
   }
+});
+closeBtn.addEventListener("click", function() {
+  finalScreen.style.display = "none";
 });
 
 function startGame() {
@@ -111,14 +119,19 @@ function checkAnswer() {
 }
 
 function endGame() {
-  scoreContainer.textContent = "Game over! Your final score is " + score;
-  startBtn.style.display = "block";
-  gameContainer.style.display = "none";
+  finalScreen.style.display = "block";
+  finalScoreElement.textContent = score;
+
+  if ((score / shuffledImages.length) * 100 >= 60) {
+    finalScoreElement.classList.add("final-score-green");
+  } else {
+    finalScoreElement.classList.add("final-score-red");
+  }
+
   resetBtn.style.display = "block"; // Show the reset button
   currentImageIndex = 0;
   score = 0;
 }
-
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
