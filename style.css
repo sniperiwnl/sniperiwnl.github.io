@@ -160,3 +160,21 @@ input[type="text"] {
   justify-content: center;
   margin-bottom: 20px;
 }
+
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.answer-btn {
+  margin: 5px;
+}
+.correct-answer {
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+}
