@@ -11,8 +11,16 @@
       <button id="start-btn">Start</button>
       <div id="game-container">
         <div id="image-container"></div>
-        <input type="text" id="answer-field" placeholder="Enter map name">
-        <button id="submit-btn">Submit</button>
+        
+        <!-- Remove the input field and submit button, add answer buttons -->
+        <div class="answer-buttons">
+          <button class="answer-btn" data-map="Ascent">Ascent</button>
+          <button class="answer-btn" data-map="Bind">Bind</button>
+          <button class="answer-btn" data-map="Haven">Haven</button>
+          <button class="answer-btn" data-map="Icebox">Icebox</button>
+          <button class="answer-btn" data-map="Split">Split</button>
+        </div>
+        
         <div id="score-container"></div>
         <div id="timer-container" class="timer-box"></div>
         <button id="reset-btn" style="display: none;">Reset</button>
