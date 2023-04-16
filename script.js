@@ -78,8 +78,6 @@ var score = 0;
 var timer = null;
 var numberOfImagesToPlay = 10;
 var countdownTimer = null; 
-var numberOfImagesToPlay = 10;
-
 // get DOM elements
 var startBtn = document.getElementById("start-btn");
 var gameContainer = document.getElementById("game-container");
@@ -156,12 +154,12 @@ function checkAnswer(userAnswer) {
 
   if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
     score++;
-    scoreContainer.textContent = "Correct! Your score is " + score;
+    scoreContainer.textContent = "Correct! Your score is " +  score + " / " + numberOfImagesToPlay;
     scoreContainer.classList.remove("wrong-answer");
     scoreContainer.classList.add("correct-answer");
   } else {
     score--;
-    scoreContainer.textContent = "Wrong! Your score is " + score;
+    scoreContainer.textContent = "Wrong! Your score is " + score + " / " + numberOfImagesToPlay;
     scoreContainer.classList.remove("correct-answer");
     scoreContainer.classList.add("wrong-answer");
   }
