@@ -103,21 +103,7 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-.close-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
 
-.close-btn:hover {
-  color: #677bc4;
-}
 
 .final-screen h2 {
   font-size: 36px;
@@ -161,6 +147,21 @@ input[type="text"] {
   margin-bottom: 20px;
 }
 
+.image-container {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
 .answer-buttons {
   display: flex;
   justify-content: center;
@@ -177,4 +178,92 @@ input[type="text"] {
 
 .wrong-answer {
   color: red;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  color: black;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.game-mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.game-mode-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.game-mode-btn:hover {
+  background-color: #45a049;
+}
+
+.continue-btn {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.continue-btn:hover {
+  background-color: #0079a9;
+}
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.selected {
+  background-color: #007bff;
+  color: #ffffff;
 }

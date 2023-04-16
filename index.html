@@ -2,17 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>ValGuessr - Game</title>
+    <title>Valorant GeoGuessr</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="container">
-      <h1>ValGuessr</h1>
+      <h1>Valorant GeoGuessr</h1>
       <button id="start-btn">Start</button>
       <div id="game-container">
         <div id="image-container"></div>
-        
-        <!-- Remove the input field and submit button, add answer buttons -->
         <div class="answer-buttons">
           <button class="answer-btn" data-map="Ascent">Ascent</button>
           <button class="answer-btn" data-map="Bind">Bind</button>
@@ -20,13 +18,23 @@
           <button class="answer-btn" data-map="Icebox">Icebox</button>
           <button class="answer-btn" data-map="Split">Split</button>
         </div>
-        
         <div id="score-container"></div>
         <div id="timer-container" class="timer-box"></div>
         <button id="reset-btn" style="display: none;">Reset</button>
       </div>
     </div>
-    <!-- Add this block for the final screen -->
+    <div id="settings-modal" class="modal">
+  <div class="modal-content">
+    <span id="modal-close" class="close">&times;</span>
+    <h2>Choose Game Mode</h2>
+    <p>Select the number of images you want to play with:</p>
+    <div class="game-mode-buttons">
+      <button class="game-mode-btn" data-images="10">10</button>
+      <button class="game-mode-btn" data-images="20">20</button>
+      <button class="game-mode-btn" data-images="30">30</button>
+    </div>
+  </div>
+</div>
     <div id="final-screen" class="final-screen">
       <div class="final-screen-content">
         <button id="close-btn" class="close-btn">&times;</button>
