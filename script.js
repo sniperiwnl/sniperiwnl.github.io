@@ -5,18 +5,36 @@ var images = [
   { file: "Ascent/resized/IMG3.png", map: "Ascent" },
   { file: "Ascent/resized/IMG4.png", map: "Ascent" },
   { file: "Ascent/resized/IMG5.png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (10).png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (11).png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (6).png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (7).png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (8).png", map: "Ascent" },
+  { file: "Ascent/resized/Screenshot (9).png", map: "Ascent" },
   { file: "Bind/resized/IMG1.png", map: "Bind" },
   { file: "Bind/resized/IMG2.png", map: "Bind" },
   { file: "Bind/resized/IMG3.png", map: "Bind" },
   { file: "Bind/resized/IMG4.png", map: "Bind" },
   { file: "Bind/resized/IMG5.png", map: "Bind" },
   { file: "Bind/resized/IMG6.png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (12).png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (13).png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (14).png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (15).png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (16).png", map: "Bind" },
+  { file: "Bind/resized/Screenshot (17).png", map: "Bind" },
   { file: "Haven/resized/IMG1.png", map: "Haven" },
   { file: "Haven/resized/IMG2.png", map: "Haven" },
   { file: "Haven/resized/IMG3.png", map: "Haven" },
   { file: "Haven/resized/IMG4.png", map: "Haven" },
   { file: "Haven/resized/IMG5.png", map: "Haven" },
   { file: "Haven/resized/IMG6.png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (30).png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (31).png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (32).png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (33).png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (34).png", map: "Haven" },
+  { file: "Haven/resized/Screenshot (35).png", map: "Haven" },
   { file: "Icebox/resized/IMG1.png", map: "Icebox" },
   { file: "Icebox/resized/IMG2.png", map: "Icebox" },
   { file: "Icebox/resized/IMG3.png", map: "Icebox" },
@@ -33,6 +51,25 @@ var images = [
   { file: "Split/resized/IMG5.png", map: "Split" },
   { file: "Split/resized/IMG6.png", map: "Split" },
   { file: "Split/resized/IMG7.png", map: "Split" },
+  { file: "Split/resized/Screenshot (54).png", map: "Split" },
+  { file: "Split/resized/Screenshot (55).png", map: "Split" },
+  { file: "Split/resized/Screenshot (56).png", map: "Split" },
+  { file: "Split/resized/Screenshot (57).png", map: "Split" },
+  { file: "Split/resized/Screenshot (58).png", map: "Split" },
+  { file: "Split/resized/Screenshot (59).png", map: "Split" },
+  { file: "Fracture/resized/Screenshot (24).png", map: "Fracture" },
+  { file: "Fracture/resized/Screenshot (25).png", map: "Fracture" },
+  { file: "Fracture/resized/Screenshot (26).png", map: "Fracture" },
+  { file: "Fracture/resized/Screenshot (27).png", map: "Fracture" },
+  { file: "Fracture/resized/Screenshot (28).png", map: "Fracture" },
+  { file: "Fracture/resized/Screenshot (29).png", map: "Fracture" },
+  { file: "Pearl/resized/Screenshot (48).png", map: "Pearl" },
+  { file: "Pearl/resized/Screenshot (49).png", map: "Pearl" },
+  { file: "Pearl/resized/Screenshot (50).png", map: "Pearl" },
+  { file: "Pearl/resized/Screenshot (51).png", map: "Pearl" },
+  { file: "Pearl/resized/Screenshot (52).png", map: "Pearl" },
+  { file: "Pearl/resized/Screenshot (53).png", map: "Pearl" },
+
 
 ];
 var shuffledImages = shuffleArray(images);
@@ -53,9 +90,11 @@ var timerContainer = document.getElementById("timer-container");
 var resetBtn = document.getElementById("reset-btn");
 var finalScreen = document.querySelector(".final-screen");
 var finalScoreElement = document.getElementById("final-score");
+var finalScreenClose = document.getElementById("final-screen-close");
 var settingsModal = document.getElementById("settings-modal");
 var modalClose = document.getElementById("modal-close");
 var gameModeButtons = document.querySelectorAll(".game-mode-btn");
+
 
 // add event listeners
 startBtn.addEventListener("click", function () {
@@ -158,7 +197,7 @@ function countdown() {
 function endGame() {
   clearTimeout(timer);
   finalScreen.style.display = "block";
-  finalScoreElement.textContent = score;
+  finalScoreElement.textContent = score + " / " + numberOfImagesToPlay;
 
   if ((score / numberOfImagesToPlay) * 100 >= 60) {
     finalScoreElement.classList.add("final-score-green");
@@ -168,8 +207,12 @@ function endGame() {
 
   resetBtn.style.display = "block";
 }
-
 modalClose.addEventListener("click", function () {
+  finalScreen.style.display = "none";
+  location.reload();
+});
+
+finalScreenClose.addEventListener("click", function () {
   finalScreen.style.display = "none";
   location.reload();
 });
