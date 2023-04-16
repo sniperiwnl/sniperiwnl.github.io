@@ -92,6 +92,7 @@ function startGame() {
   startBtn.style.display = "none";
   gameContainer.style.display = "block";
   shuffledImages = shuffleArray(images).slice(0, numberOfImagesToPlay);
+  currentImageIndex = 0;
   displayImage();
   timer = setTimeout(function () {
     checkAnswer("");
@@ -155,6 +156,7 @@ function countdown() {
 }
 
 function endGame() {
+  clearTimeout(timer);
   finalScreen.style.display = "block";
   finalScoreElement.textContent = score;
 
@@ -165,9 +167,12 @@ function endGame() {
   }
 
   resetBtn.style.display = "block";
-  currentImageIndex = 0;
-  score = 0;
 }
+
+modalClose.addEventListener("click", function () {
+  finalScreen.style.display = "none";
+  location.reload();
+});
 
 
 function shuffleArray(array) {
