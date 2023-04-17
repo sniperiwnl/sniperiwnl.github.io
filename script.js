@@ -92,7 +92,9 @@ var finalScreenClose = document.getElementById("final-screen-close");
 var settingsModal = document.getElementById("settings-modal");
 var modalClose = document.getElementById("modal-close");
 var gameModeButtons = document.querySelectorAll(".game-mode-btn");
-
+var resultIcons = [];
+var checkmarkIcon = "images/checkmark.png"; 
+var crossIcon = "images/cross.png"; 
 
 // add event listeners
 startBtn.addEventListener("click", function () {
@@ -125,6 +127,20 @@ answerButtons.forEach(function (button) {
   });
 });
 
+function displayResultIcons() {
+  var iconsContainer = document.createElement("div");
+  iconsContainer.classList.add("icons-container");
+
+  resultIcons.forEach(function (icon) {
+    var img = document.createElement("img");
+    img.src = icon;
+    img.classList.add("result-icon");
+    iconsContainer.appendChild(img);
+  });
+
+  scoreContainer.appendChild(iconsContainer);
+}
+
 function startGame() {
   startBtn.style.display = "none";
   gameContainer.style.display = "block";
@@ -149,21 +165,18 @@ function displayImage() {
 function checkAnswer(userAnswer) {
   clearTimeout(timer);
   clearInterval(countdownTimer);
-  
-  var correctAnswer = shuffledImages[currentImageIndex].map;
 
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+  var correctAnswer = shuffledImages[currentImageIndex].map;
+  var isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+
+  if (isCorrect) {
     score++;
-    scoreContainer.textContent = "Correct! Your score is " +  score + " / " + numberOfImagesToPlay;
-    scoreContainer.classList.remove("wrong-answer");
-    scoreContainer.classList.add("correct-answer");
+    resultIcons.push(checkmarkIcon);
   } else {
-    score--;
-    scoreContainer.textContent = "Wrong! Your score is " + score + " / " + numberOfImagesToPlay;
-    scoreContainer.classList.remove("correct-answer");
-    scoreContainer.classList.add("wrong-answer");
+    resultIcons.push(crossIcon);
   }
 
+  scoreContainer.textContent = "Score: " + score + " / " + numberOfImagesToPlay;
   currentImageIndex++;
 
   if (currentImageIndex < numberOfImagesToPlay && currentImageIndex < shuffledImages.length) {
@@ -176,6 +189,8 @@ function checkAnswer(userAnswer) {
   } else {
     endGame();
   }
+
+  displayResultIcons(); // Move this line to the end of the function
 }
 
 function countdown() {

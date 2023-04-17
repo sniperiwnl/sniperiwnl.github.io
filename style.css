@@ -291,7 +291,7 @@ input[type="text"] {
 
 #timer-container {
   position: absolute;
-  top: 400px;
+  top: 500px;
   right: 10px;
   color: black;
 }
@@ -300,4 +300,18 @@ input[type="text"] {
   position: right;
   top: 50px;
   right: 20px;
+  color: black;
+}
+.result-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-height: 30px; 
+  margin-top: 10px;
 }
